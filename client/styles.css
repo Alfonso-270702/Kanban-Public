@@ -1,0 +1,36 @@
+.main-container{
+    display: flex;
+}
+
+.backlog, .todo, .done, .complete{
+    display: flex;
+    flex-direction: column;
+    background-color: #8890dd;
+}
+
+.main-container .card-body{
+    padding: 10px;
+    border-radius: .25rem;
+}
+
+.backlog .card-body{
+    background-color: #ffe9ff;
+}
+.todo .card-body{
+    background-color: #ffefd8;
+}
+.done .card-body{
+    background-color: #91a5d3;
+}
+.complete .card-body{
+    background-color: #cbf0f3;
+}
+.navbar{
+    background: rgb(154,168,251);
+    background: linear-gradient(90deg, rgba(154,168,251,1) 0%, rgba(142,170,250,1) 35%, rgba(127,174,250,1) 100%);
+    position: fixed;
+}
+.card-title, .card-text, .card-heading{
+    color: #191c22;
+}
+
