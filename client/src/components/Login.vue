@@ -16,15 +16,14 @@
         <input type="password" class="form-control w-75" name="password" placeholder="input your password" v-model="password">
       </div>
 
-      <button v-google-signin-button="clientId" class="google-signin-button"><i class="fab fa-google"></i> Google</button>
       <div class="d-flex justify-content-flex-start">
         <p v-on:click="registerPage ">Does not have account yet? Register here</p>
        </div>
       <div>
         <button class="btn btn-primary">Login</button>
       </div>
-
     </form>
+      <button v-google-signin-button="clientId" class="google-signin-button"><i class="fab fa-google"></i> Google</button>
   </div>
 </section>
 </template>

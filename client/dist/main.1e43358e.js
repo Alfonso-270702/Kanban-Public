@@ -11393,7 +11393,7 @@ var _axios = _interopRequireDefault(require("axios"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var instance = _axios.default.create({
-  baseURL: 'https://kanban-server-porto2.herokuapp.com'
+  baseURL: 'http://localhost:3000'
 });
 
 instance.interceptors.response.use(function (response) {
@@ -11405,6 +11405,7 @@ instance.interceptors.response.use(function (response) {
     title: 'Oops...',
     text: "".concat(error.response.data.errors.join(', '))
   });
+  console.log(error.response);
 });
 var _default = instance;
 exports.default = _default;
@@ -11643,19 +11644,15 @@ var _default = {
       pageName: 'home',
       categories: [{
         title: 'Backlog',
-        color: 'red',
         category: 'backlog'
       }, {
         title: 'Todo',
-        color: '#ffe9ff',
         category: 'todo'
       }, {
         title: 'Doing',
-        color: 'red',
         category: 'doing'
       }, {
         title: 'Complete',
-        color: 'red',
         category: 'complete'
       }],
       tasks: [],
@@ -12168,7 +12165,6 @@ exports.default = void 0;
 //
 //
 //
-//
 var _default = {
   data: function data() {
     return {
@@ -12286,22 +12282,6 @@ exports.default = _default;
             })
           ]),
           _vm._v(" "),
-          _c(
-            "button",
-            {
-              directives: [
-                {
-                  name: "google-signin-button",
-                  rawName: "v-google-signin-button",
-                  value: _vm.clientId,
-                  expression: "clientId"
-                }
-              ],
-              staticClass: "google-signin-button"
-            },
-            [_c("i", { staticClass: "fab fa-google" }), _vm._v(" Google")]
-          ),
-          _vm._v(" "),
           _c("div", { staticClass: "d-flex justify-content-flex-start" }, [
             _c("p", { on: { click: _vm.registerPage } }, [
               _vm._v("Does not have account yet? Register here")
@@ -12310,6 +12290,22 @@ exports.default = _default;
           _vm._v(" "),
           _vm._m(1)
         ]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          directives: [
+            {
+              name: "google-signin-button",
+              rawName: "v-google-signin-button",
+              value: _vm.clientId,
+              expression: "clientId"
+            }
+          ],
+          staticClass: "google-signin-button"
+        },
+        [_c("i", { staticClass: "fab fa-google" }), _vm._v(" Google")]
       )
     ])
   ])
@@ -12753,7 +12749,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52169" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57280" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -22,9 +22,7 @@ class HomeController{
             }
         })
         .then(data=>{
-            // console.log(data)
             if(! data){
-                // console.log('kok bisa masuk sini????????????')
                 throw {msg: 'User not found', status: 400}
             } 
             else{
@@ -44,7 +42,7 @@ class HomeController{
     }
     static googleLogin(req,res,next){
         const { id_token } = req.body
-
+        
         const CLIENT_ID = process.env.GOOGLE_CLIENT_ID_KEY
 
         const client = new OAuth2Client(CLIENT_ID);

@@ -1,6 +1,6 @@
 import axios from 'axios'
 const instance = axios.create({
-    baseURL: 'https://kanban-server-porto2.herokuapp.com'
+    baseURL: 'http://localhost:3000'
 })
 
 instance.interceptors.response.use((response) => response, (error) => {
@@ -10,5 +10,6 @@ instance.interceptors.response.use((response) => response, (error) => {
         title: 'Oops...',
         text: `${error.response.data.errors.join(', ')}`,
       })
+    console.log(error.response)
   });
 export default instance
