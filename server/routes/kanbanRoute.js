@@ -4,9 +4,9 @@ const authentication = require('../middleware/authentication')
 const authorization = require('../middleware/authorization')
 
 route.use(authentication)
-route.get('/',KanbanController.list)
+
 route.post('/',KanbanController.create)
-// route.get('/:id',KanbanController.findOne)
+route.get('/',KanbanController.list)
 route.put('/:id',authorization,KanbanController.editOne)
 route.delete('/:id',authorization,KanbanController.deleteOne)
 

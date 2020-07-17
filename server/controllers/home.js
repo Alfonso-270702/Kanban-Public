@@ -22,7 +22,11 @@ class HomeController{
             }
         })
         .then(data=>{
-            if(! data) throw {msg: 'User not found', status: 400}
+            // console.log(data)
+            if(! data){
+                // console.log('kok bisa masuk sini????????????')
+                throw {msg: 'User not found', status: 400}
+            } 
             else{
                 const hashedPassword = compare(password,data.password)
                 if(hashedPassword){
@@ -30,7 +34,7 @@ class HomeController{
                     res.status(200).json({msg:`${data.name} successfully login`,token})
                 }
                 else{
-                    throw {msg: 'Email or Password wrong'}
+                    throw {msg: 'Email or Password wrong',status: 400}
                 }
             }
         }) 

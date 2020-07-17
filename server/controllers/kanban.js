@@ -2,14 +2,13 @@ const { Note } = require('../models')
 
 class KanbanController{
     static list(req,res,next){
-    //    let userId = req.userData.id
-       Note.findAll()
-       .then(data=>{
-            res.status(200).json({data})
-       })
-       .catch(err=>{
-           next(err)
-       })
+    Note.findAll()
+    .then(data=>{
+        res.status(200).json({data})
+    })
+    .catch(err=>{
+        next(err)
+    })
         
     }
     static create(req,res,next){
@@ -23,14 +22,11 @@ class KanbanController{
             next(err)
         })
     }
-    // static findOne(req,res,next){
-
-    // }
     static editOne(req,res,next){
         const {title, category, author} = req.body
         Note.update({title,category,author},{
             where:{
-                id = req.params.id
+                id : req.params.id
             }
         })
         .then(data=>{

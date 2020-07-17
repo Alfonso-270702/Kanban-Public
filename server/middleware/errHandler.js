@@ -15,6 +15,7 @@ module.exports= (err,req,res,next)=>{
             break;
         default:
             let message = err.msg || 'Internal Server Error'
+            errors.push(message)
             statusCode = err.status || statusCode
             break;
     }

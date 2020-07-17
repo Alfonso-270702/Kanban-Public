@@ -1,3 +1,10 @@
+body{
+    background-color: #f7faff;
+    font-family: 'Open Sans', sans-serif;
+    /* background: linear-gradient(45deg,#e0eafc, #cfdef3) */
+}
+
+/* ================ CLASS ================ */
 .main-container{
     display: flex;
 }
@@ -5,32 +12,75 @@
 .backlog, .todo, .done, .complete{
     display: flex;
     flex-direction: column;
-    background-color: #8890dd;
+}
+
+.main-container .card{
+    border: 0;
+    border-radius: .25rem;
 }
 
 .main-container .card-body{
     padding: 10px;
     border-radius: .25rem;
+    overflow: hidden;
+}
+
+.main-container .card-background{
+    background-color:#8890dd ;
+    padding: 10px 7px;
+
 }
 
 .backlog .card-body{
-    background-color: #ffe9ff;
+    background-color: #ffe8ff;
 }
+
 .todo .card-body{
-    background-color: #ffefd8;
+    background-color: #fff0d5;
 }
-.done .card-body{
-    background-color: #91a5d3;
+
+.doing .card-body{
+    background-color: #d9e4ff;
 }
+
 .complete .card-body{
-    background-color: #cbf0f3;
+    background-color: #caeffa;
 }
+
+.card-title, .card-text, .card-heading{
+    color: #191c22;
+}
+
+.add-form{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
 .navbar{
     background: rgb(154,168,251);
     background: linear-gradient(90deg, rgba(154,168,251,1) 0%, rgba(142,170,250,1) 35%, rgba(127,174,250,1) 100%);
-    position: fixed;
 }
-.card-title, .card-text, .card-heading{
-    color: #191c22;
+
+ .backlog{
+    background-color: #ba8096
+}
+
+ .todo{
+    background-color: #ddb583;
+}
+ .doing{
+    background-color: #8ca9d4
+}
+ .complete{
+    background-color: #93c5b9;
+}
+/* ================ ID ================ */
+#home-page{
+    height: 100vh;
+    /* width: 100vw; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
