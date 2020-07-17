@@ -47,22 +47,18 @@ export default {
             categories: [
                 {
                     title: 'Backlog',
-                    color: 'red',
                     category: 'backlog'
                 },
                 {
                     title: 'Todo',
-                    color: '#ffe9ff',
                     category: 'todo'
                 },
                 {
                     title: 'Doing',
-                    color: 'red',
                     category: 'doing'
                 },
                 {
                     title: 'Complete',
-                    color: 'red',
                     category: 'complete'
                 }
             ],

@@ -11393,7 +11393,7 @@ var _axios = _interopRequireDefault(require("axios"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var instance = _axios.default.create({
-  baseURL: 'http://localhost:3000'
+  baseURL: 'https://kanban-server-porto2.herokuapp.com'
 });
 
 instance.interceptors.response.use(function (response) {
@@ -12753,7 +12753,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58225" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52169" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
