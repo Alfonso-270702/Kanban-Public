@@ -19,11 +19,16 @@
       <div class="d-flex justify-content-flex-start">
         <p v-on:click="registerPage ">Does not have account yet? Register here</p>
        </div>
-      <div>
+      <div class="d-flex">
         <button class="btn btn-primary">Login</button>
       </div>
     </form>
-      <button v-google-signin-button="clientId" class="google-signin-button"><i class="fab fa-google"></i> Google</button>
+    <div class="mt-1">
+      <p class="mb-0">Or</p>
+    </div>
+    <div class="mt-1">
+      <button v-google-signin-button="clientId" class="google-signin-button google-btn btn btn-warning"><i class="fab fa-google mr-1"></i> Google</button>
+    </div>
   </div>
 </section>
 </template>
@@ -62,4 +67,8 @@ export default {
 </script>
 
 <style>
+  .google-btn{
+    display: flex;
+    align-items: center;
+  }
 </style>

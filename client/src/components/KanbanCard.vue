@@ -4,9 +4,9 @@
             <div class="card-body" >
                 <h5 class="card-title">{{kanbanDetail.title}}</h5>
                 <p class="card-text"><small class="text-muted">Author: <i>{{kanbanDetail.author}}</i></small></p>
-            <div>
-                <i @click="editIcon" class="far fa-edit"></i>
-                <i @click="deleteKanbanCard" class="far fa-trash-alt"></i>
+            <div class="option-button">
+                <i @click="editIcon" class="far fa-edit edit-btn"></i>
+                <i @click="deleteKanbanCard" class="far fa-trash-alt delete-btn"></i>
             </div>
             </div>
         </div>
@@ -36,5 +36,13 @@ export default {
 </script>
 
 <style>
-
+    .option-button{
+        cursor: pointer;
+    }
+    .edit-btn:hover{
+        color: green;
+    }
+    .delete-btn:hover{
+        color: red;
+    }
 </style>

@@ -45,5 +45,7 @@ export default {
 </script>
 
 <style>
-
+    .navbar-brand{
+        cursor: pointer;
+    }
 </style>

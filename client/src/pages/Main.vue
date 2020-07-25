@@ -167,6 +167,10 @@ export default {
         justify-content: flex-end;
         align-items: center;
         width: 100px;
+        cursor: pointer;
+    }
+    .button-add:hover{
+        color:orange
     }
     .main-content{
         display: flex;
