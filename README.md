@@ -1,51 +1,345 @@
-# Kanban Amsterdam Fox
+# Kanban
 
-Buatlah aplikasi Kanban menggunakan client-server model dengan spesifikasi sebagai berikut:
+## POST /register
+Register so user can access kanban
 
-### 1. API Documentation (server) yang meliputi:
-- URL(s)
-- HTTP Method
-- Request
-- Response (success dan error)
-- Membuat routes sesuai standar REST API
+### Properties
+- name (string)
+- email (string)
+- password (string)
 
-### 2. CRUD endpoints untuk Task, dimana minimal inputnya memiliki:
-- title
-- category
+### Request Body
+``` javascript
+{
+    "name": "John Doe",
+    "email": "johndoe@gmail.com",
+    "password": "1234"
+}
+```
 
-### 3. Register dan Login
-Berikan atribut Organization pada User, dengan default value “Hacktiv8”. Atribut ini ditambahkan pada server sehingga akan ter-input secara otomatis ketika user baru didaftarkan dan default value tidak boleh diubah dengan value lain selain “Hacktiv8”. (Note: Untuk case ini kegunaan organization tersebut akan terlihat ketika kalian mengerjakan socket. Ketika terjadi perubahan pada task, maka semua user yang online dan 1 organisasi akan dapat melihat perubahannya. Jika ada pertanyaan lebih lanjut mengenai hal ini, bisa tanyakan instruktur :) )
+### Response
+Status 201
+``` javascript
+    {
+        "msg": "John Doe successfully register"
+    }
+```
+Status 400
+``` javascript
+{
+    "errors":[
+      "error_name"
+    ]
+}
+```
+Status 500
+``` javascript
+{
+    "errors":{
+      "internal server error"
+    }
+}
+```
+<br>
 
-### 4. Membuat authorization sehingga user hanya bisa melakukan UD terhadap task-nya sendiri
+## POST /login
+Login if user want to CRUD todo list
 
-### 5. Melakukan Read pada semua card yang tersedia(authentication)
+### Properties
+- email (string)
+- password (string)
 
-### 6. Social Login (Google/Twitter/Facebook/GitHub)
+### Request Body
+``` javascript
+{
+    "email": "johndoe@gmail.com",
+    "password": "1234"
+}
+```
 
-### 7. No alert()!!!
-### 8. Deploy ke Heroku(server) + Firebase (client) Hosting
+### Response
+Status 200
+``` javascript
+{
+  "msg": "Jane Doe successfully login",
+  "token": "<user_token>"
+}
+```
+Status 400
+``` javascript
+{
+    "errors": [
+      "error_name"
+    ]
+}
+```
 
-## Rocket 🚀
-- Buat Kanban Board kamu menjadi real time menggunakan socket.io
+Status 500
+``` javascript
+{
+    "errors": {
+      "internal server error"
+    }
+}
+```
+<br>
 
-### Kompetensi Backend
-- REST API
-- API Documentation
-- Auth
-- PostgreSQL + Sequelize
+## GET /kanban
+Get All Kanban list
 
-### Kompetensi Client
-- Vue.js
-- SPA (Single Page Application)
+### Properties
+- title (string)
+- author (string)
+- category (string)
+- userId (integer)
 
-## Deadline
-> Week 2 - Jumat 23:59
+## Request Header
+``` javascript
+{
+   "token" : "<user_token>" 
+}
+```
 
-### Contoh
+### Response
+Status 200
+``` javascript
+{
+   "data": [
+        {
+            "id": 1,
+            "title": "Liburan ke Bali",
+            "category": "backlog",
+            "author": "Alfonso",
+            "userId": 1,
+            "createdAt": "2020-07-17T07:23:46.804Z",
+            "updatedAt": "2020-07-17T07:23:46.804Z"
+        }
+    ]
+}
+```
+Status 400
+``` javascript
+{
+    "errors": [
+      "error_name"
+    ]
+}
+```
+Status 500
+``` javascript
+{
+    "errors": {
+      "internal server error"
+    }
+}
+```
+<br>
 
-https://kamvan-6aa69.firebaseapp.com/
-https://kanban-83af9.firebaseapp.com/
+## POST /kanban
+Create kanban
 
-### Submission
-Fork dari organization, lalu open pull request dengan title NAMA LENGKAP KAMU (ex: Dimitri Wahyudiputra) dan assign ke buddy kamu jika sudah selesai. Tambahkan comment yang berisi environment variables yang dipakai (beserta valuenya), link deploy (jika ada), fitur tambahannya apa dan kendala saat mengerjakan.
+### Properties
+- title (string)
+- author (string)
+- category (string)
+- userId (integer)
 
+## Request Header
+``` javascript
+{
+   "token" : "<user_token>" 
+}
+```
+
+## Request Body
+``` javascript
+{
+    "data": {
+        "id": (string),
+        "title": (string),
+        "author": (string),
+        "category": (string),
+        "userId" :(integer)
+    }
+}
+```
+
+### Response
+Status 201
+``` javascript
+{
+    "data": {
+        "id": 1,
+        "title": "title",
+        "author": "author",
+        "category": "category",
+        "userId": 1,
+        "createdAt": "2020-07-15T11:12:05.376Z",
+        "updatedAt": "2020-07-15T11:13:16.220Z"
+    }
+}
+```
+Status 400
+``` javascript
+{
+    "errors": [
+      "error_name"
+    ]
+}
+```
+Status 500
+``` javascript
+{
+    "errors": {
+      "internal server error"
+    }
+}
+```
+<br>
+
+## PUT /kanban/:id
+Update user Kanban
+
+### Properties
+- title (string)
+- author (string)
+- category (string)
+- userId (integer)
+- id (integer)
+
+## Request Header
+``` javascript
+{
+   "token" : "<user_token>" 
+}
+```
+
+## Request Body
+``` javascript
+{
+    "data": {
+        "id": 1,
+        "title": "title",
+        "author": "author",
+        "category": "category",
+        "userId": 1,
+    }
+}
+```
+
+### Response
+Status 200
+``` javascript
+{
+  msg:'successfully edit kanban'
+}
+```
+Status 400
+``` javascript
+{
+    "errors": [
+      "error_name"
+    ]
+}
+```
+Status 404
+``` javascript
+{
+    "errors": [
+      "ERROR! Not Found"
+    ]
+}
+```
+
+Status 500
+``` javascript
+{
+    "errors": {
+      "internal server error"
+    }
+}
+```
+<br>
+
+## DELETE /kanban/:id
+Delete user Kanban
+
+### Properties
+- id (integer)
+
+## Request Header
+``` javascript
+{
+   "token" : "<user_token>" 
+}
+```
+
+## Request Params
+``` javascript
+{
+  "id": "user_id",
+}
+```
+
+### Response
+Status 200
+``` javascript
+{
+  msg:'successfully delete kanban'
+}
+```
+Status 400
+``` javascript
+{
+    "errors": [
+      "error_name"
+    ]
+}
+```
+Status 404
+``` javascript
+{
+    "errors": [
+      "ERROR! Not Found"
+    ]
+}
+```
+
+Status 500
+``` javascript
+{
+    "errors": {
+      "internal server error"
+    }
+}
+```
+<br>
+
+## POST /googlelogin
+Register with google 
+
+### Request Body
+``` javascript
+{
+  "id_token" = (string)
+}
+```
+
+### Response
+
+Status 200
+``` javascript
+  {
+    "token": (string)
+  }
+```
+
+Status 500
+``` javascript
+{
+    "errors": {
+      "internal server error"
+    }
+}
+```
+<br>
